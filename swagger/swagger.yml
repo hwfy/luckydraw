@@ -1,0 +1,920 @@
+swagger: "2.0"
+info:
+  title: 抽奖项目 API
+  description: 人事基础资料、奖项表、中奖表、概率表管理
+  version: 1.0.0
+  contact:
+    email: luckyfanyang@gmail.com
+basePath: /v1/luckydraw
+paths:
+  /awards_conditions_table/:
+    get:
+      tags:
+      - awards_conditions_table
+      description: 获取奖项条件表所有数据
+      operationId: AwardsConditionsTableController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: filter e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: joins
+        description: joins e.g. inner join t1 on t1.col1=t.col,left join t2 on t2.col1=t.col
+        type: string
+      - in: query
+        name: fields
+        description: fields e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1 desc,col2 asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AwardsConditionsTable'
+        "409":
+          description: 获取失败
+    post:
+      tags:
+      - awards_conditions_table
+      description: 新增数据到奖项条件表
+      operationId: AwardsConditionsTableController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for AwardsConditionsTable content
+        required: true
+        schema:
+          $ref: '#/definitions/AwardsConditionsTable'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/AwardsConditionsTable'
+        "400":
+          description: 参数错误
+        "409":
+          description: 保存失败
+  /awards_conditions_table/{id}:
+    get:
+      tags:
+      - awards_conditions_table
+      description: 根据id获取奖项条件表数据
+      operationId: AwardsConditionsTableController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/AwardsConditionsTable'
+        "400":
+          description: 参数错误
+        "409":
+          description: 获取失败
+    put:
+      tags:
+      - awards_conditions_table
+      description: 根据id更新奖项条件表数据
+      operationId: AwardsConditionsTableController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for AwardsConditionsTable content
+        required: true
+        schema:
+          $ref: '#/definitions/AwardsConditionsTable'
+      responses:
+        "200":
+          description: '{string} OK'
+        "400":
+          description: 参数错误
+        "409":
+          description: 更新失败
+    delete:
+      tags:
+      - awards_conditions_table
+      description: 根据id删除奖项条件表数据
+      operationId: AwardsConditionsTableController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} OK'
+        "400":
+          description: 参数错误
+        "409":
+          description: 删除失败
+    options:
+      tags:
+      - awards_conditions_table
+  /awards_conditions_table/data_dictionary:
+    get:
+      tags:
+      - awards_conditions_table
+      description: 获取奖项条件表数据字典
+      operationId: AwardsConditionsTableController.Get DATA Dictionary
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/DataDictionary'
+        "409":
+          description: 获取失败
+  /awards_stage_table/:
+    get:
+      tags:
+      - awards_stage_table
+      description: 获取奖项阶段表所有数据
+      operationId: AwardsStageTableController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: filter e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: joins
+        description: joins e.g. inner join t1 on t1.col1=t.col,left join t2 on t2.col1=t.col
+        type: string
+      - in: query
+        name: fields
+        description: fields e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1 desc,col2 asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AwardsStageTable'
+        "409":
+          description: 获取失败
+    post:
+      tags:
+      - awards_stage_table
+      description: 新增数据到奖项阶段表
+      operationId: AwardsStageTableController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for AwardsStageTable content
+        required: true
+        schema:
+          $ref: '#/definitions/AwardsStageTable'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/AwardsStageTable'
+        "400":
+          description: 参数错误
+        "409":
+          description: 保存失败
+  /awards_stage_table/{id}:
+    get:
+      tags:
+      - awards_stage_table
+      description: 根据id获取奖项阶段表数据
+      operationId: AwardsStageTableController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/AwardsStageTable'
+        "400":
+          description: 参数错误
+        "409":
+          description: 获取失败
+    put:
+      tags:
+      - awards_stage_table
+      description: 根据id更新奖项阶段表数据
+      operationId: AwardsStageTableController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for AwardsStageTable content
+        required: true
+        schema:
+          $ref: '#/definitions/AwardsStageTable'
+      responses:
+        "200":
+          description: '{string} OK'
+        "400":
+          description: 参数错误
+        "409":
+          description: 更新失败
+    delete:
+      tags:
+      - awards_stage_table
+      description: 根据id删除奖项阶段表数据
+      operationId: AwardsStageTableController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} OK'
+        "400":
+          description: 参数错误
+        "409":
+          description: 删除失败
+    options:
+      tags:
+      - awards_stage_table
+  /awards_stage_table/data_dictionary:
+    get:
+      tags:
+      - awards_stage_table
+      description: 获取奖项阶段数据字典
+      operationId: AwardsStageTableController.Get DATA Dictionary
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/DataDictionary'
+        "409":
+          description: 获取失败
+  /awards_table/:
+    get:
+      tags:
+      - awards_table
+      description: 获取奖项表所有数据
+      operationId: AwardsTableController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: filter e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: joins
+        description: joins e.g. inner join t1 on t1.col1=t.col,left join t2 on t2.col1=t.col
+        type: string
+      - in: query
+        name: fields
+        description: fields e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1 desc,col2 asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AwardsTable'
+        "409":
+          description: 获取失败
+    post:
+      tags:
+      - awards_table
+      description: 新增数据到奖项表
+      operationId: AwardsTableController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for AwardsTable content
+        required: true
+        schema:
+          $ref: '#/definitions/AwardsTable'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/AwardsTable'
+        "400":
+          description: 参数错误
+        "409":
+          description: 保存失败
+  /awards_table/{id}:
+    put:
+      tags:
+      - awards_table
+      description: 根据id更新奖项表抽奖状态
+      operationId: AwardsTableController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for AwardsTable content
+        required: true
+        schema:
+          $ref: '#/definitions/AwardsTable'
+      responses:
+        "200":
+          description: '{string} OK'
+        "400":
+          description: 参数错误
+        "409":
+          description: 更新失败
+    delete:
+      tags:
+      - awards_table
+      description: 根据id删除奖项表数据
+      operationId: AwardsTableController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} OK'
+        "400":
+          description: 参数错误
+        "409":
+          description: 删除失败
+    options:
+      tags:
+      - awards_table
+  /awards_table/{name}:
+    get:
+      tags:
+      - awards_table
+      description: 根据奖项名获取所有抽奖人员
+      operationId: AwardsTableController.Get One
+      parameters:
+      - in: path
+        name: name
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LotteryStaffTemporaryTable'
+        "400":
+          description: 参数错误
+        "409":
+          description: 获取失败
+  /awards_table/data_dictionary:
+    get:
+      tags:
+      - awards_table
+      description: 获取奖项表数据字典
+      operationId: AwardsTableController.Get DATA Dictionary
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/DataDictionary'
+        "409":
+          description: 获取失败
+  /awards_table/lottery:
+    get:
+      tags:
+      - awards_table
+      description: 获取当前抽奖名称
+      operationId: AwardsTableController.Get Lottery Name
+      responses:
+        "200":
+          description: '{string} 抽奖名称'
+        "409":
+          description: 获取失败
+  /personnel_basic_information/:
+    get:
+      tags:
+      - personnel_basic_information
+      description: 获取人事基本资料所有数据
+      operationId: PersonnelBasicInformationController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: filter e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: joins
+        description: joins e.g. inner join t1 on t1.col1=t.col,left join t2 on t2.col1=t.col
+        type: string
+      - in: query
+        name: fields
+        description: fields e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1 desc,col2 asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PersonnelBasicInformation'
+        "409":
+          description: 获取失败
+    post:
+      tags:
+      - personnel_basic_information
+      description: 新增数据到人事基本资料
+      operationId: PersonnelBasicInformationController.Post
+      parameters:
+      - in: query
+        name: import
+        description: whether to import data ?
+        type: boolean
+      - in: body
+        name: body
+        description: body for PersonnelBasicInformation content
+        required: true
+        schema:
+          $ref: '#/definitions/PersonnelBasicInformation'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/PersonnelBasicInformation'
+        "400":
+          description: 参数错误
+        "409":
+          description: 保存失败
+    options:
+      tags:
+      - personnel_basic_information
+  /personnel_basic_information/{id}:
+    get:
+      tags:
+      - personnel_basic_information
+      description: 根据id获取人事基本资料数据
+      operationId: PersonnelBasicInformationController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/PersonnelBasicInformation'
+        "400":
+          description: 参数错误
+        "409":
+          description: 获取失败
+    put:
+      tags:
+      - personnel_basic_information
+      description: 根据id更新人事基本资料数据
+      operationId: PersonnelBasicInformationController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for PersonnelBasicInformation content
+        required: true
+        schema:
+          $ref: '#/definitions/PersonnelBasicInformation'
+      responses:
+        "200":
+          description: '{string} OK'
+        "400":
+          description: 参数错误
+        "409":
+          description: 更新失败
+    delete:
+      tags:
+      - personnel_basic_information
+      description: 根据id删除人事基本资料数据
+      operationId: PersonnelBasicInformationController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} OK'
+        "400":
+          description: 参数错误
+        "409":
+          description: 删除失败
+  /personnel_basic_information/data_dictionary:
+    get:
+      tags:
+      - personnel_basic_information
+      description: 获取人事基本资料数据字典
+      operationId: PersonnelBasicInformationController.Get DATA Dictionary
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/DataDictionary'
+        "409":
+          description: 获取失败
+  /winning_form/:
+    get:
+      tags:
+      - winning_form
+      description: 获取中奖表所有数据
+      operationId: WinningFormController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: filter e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: joins
+        description: joins e.g. inner join t1 on t1.col1=t.col,left join t2 on t2.col1=t.col
+        type: string
+      - in: query
+        name: fields
+        description: fields e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1 desc,col2 asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/WinningForm'
+        "409":
+          description: 获取失败
+    post:
+      tags:
+      - winning_form
+      description: 新增数据到中奖表
+      operationId: WinningFormController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for WinningForm content
+        required: true
+        schema:
+          $ref: '#/definitions/WinningForm'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/WinningForm'
+        "400":
+          description: 参数错误
+        "409":
+          description: 保存失败
+    options:
+      tags:
+      - winning_form
+  /winning_form/{id}:
+    get:
+      tags:
+      - winning_form
+      description: 根据id获取中奖表数据
+      operationId: WinningFormController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/WinningForm'
+        "400":
+          description: 参数错误
+        "409":
+          description: 获取失败
+    put:
+      tags:
+      - winning_form
+      description: 根据id更新中奖表数据
+      operationId: WinningFormController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for WinningForm content
+        required: true
+        schema:
+          $ref: '#/definitions/WinningForm'
+      responses:
+        "200":
+          description: '{string} OK'
+        "400":
+          description: 参数错误
+        "409":
+          description: 更新失败
+    delete:
+      tags:
+      - winning_form
+      description: 根据id删除中奖表数据
+      operationId: WinningFormController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} OK'
+        "400":
+          description: 参数错误
+        "409":
+          description: 删除失败
+  /winning_form/data_dictionary:
+    get:
+      tags:
+      - winning_form
+      description: 获取中奖表数据字典
+      operationId: WinningFormController.Get DATA Dictionary
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/DataDictionary'
+        "409":
+          description: 获取失败
+definitions:
+  AwardsConditionsTable:
+    title: AwardsConditionsTable
+    type: object
+    properties:
+      ID:
+        type: integer
+        format: int64
+      column_values: {}
+      condition_default:
+        type: string
+      condition_flag:
+        type: string
+      condition_name:
+        type: string
+      condition_symbol:
+        type: string
+      condition_type:
+        type: string
+      condition_value:
+        type: string
+      stage_number:
+        type: integer
+        format: int64
+  AwardsStageTable:
+    title: AwardsStageTable
+    type: object
+    properties:
+      ID:
+        type: integer
+        format: int64
+      awards:
+        type: string
+      awards_conditions_table_ID:
+        type: array
+        items:
+          $ref: '#/definitions/AwardsConditionsTable'
+      is_it_displayed:
+        type: boolean
+      is_it_present:
+        type: string
+      is_it_redundant:
+        type: string
+      lottery_staff_quantity_table_ID:
+        type: array
+        items:
+          $ref: '#/definitions/LotteryStaffQuantityTable'
+      lottery_staff_temporary_table_ID:
+        type: array
+        items:
+          $ref: '#/definitions/LotteryStaffTemporaryTable'
+      name:
+        type: string
+      quantity:
+        type: integer
+        format: int64
+      winning_form_ID:
+        type: array
+        items:
+          $ref: '#/definitions/WinningForm'
+  AwardsTable:
+    title: AwardsTable
+    type: object
+    properties:
+      ID:
+        type: integer
+        format: int64
+      amount:
+        type: number
+        format: double
+      awards_stage_table_name:
+        type: array
+        items:
+          $ref: '#/definitions/AwardsStageTable'
+      display_the_number:
+        type: integer
+        format: int64
+      is_it_lottery:
+        type: boolean
+      is_it_over:
+        type: boolean
+      name:
+        type: string
+  DataDictionary:
+    title: DataDictionary
+    type: object
+    properties:
+      character_maximum_length:
+        type: integer
+        format: int64
+      column_comment:
+        type: string
+      column_default:
+        type: string
+      column_name:
+        type: string
+      column_values: {}
+      data_type:
+        type: string
+      is_auto_increment:
+        type: integer
+        format: int64
+      is_nullable:
+        type: string
+      numeric_precision:
+        type: integer
+        format: int64
+      numeric_scale:
+        type: integer
+        format: int64
+  LotteryStaffQuantityTable:
+    title: LotteryStaffQuantityTable
+    type: object
+    properties:
+      ID:
+        type: integer
+        format: int64
+      department:
+        type: string
+      is_it_redundant:
+        type: string
+      job_number:
+        type: string
+      name:
+        type: string
+      stage_number:
+        type: integer
+        format: int64
+  LotteryStaffTemporaryTable:
+    title: LotteryStaffTemporaryTable
+    type: object
+    properties:
+      ID:
+        type: integer
+        format: int64
+      department:
+        type: string
+      is_it_redundant:
+        type: string
+      job_number:
+        type: string
+      name:
+        type: string
+      stage_number:
+        type: integer
+        format: int64
+  PersonnelBasicInformation:
+    title: PersonnelBasicInformation
+    type: object
+    properties:
+      ID:
+        type: integer
+        format: int64
+      date_of_birth:
+        $ref: '#/definitions/&{time Time}'
+      department:
+        type: string
+      duty_rank:
+        type: string
+      education:
+        type: string
+      entry_date:
+        $ref: '#/definitions/&{time Time}'
+      gender:
+        type: string
+      is_it_present:
+        type: boolean
+      job_number:
+        type: string
+      marital_status:
+        type: string
+      name:
+        type: string
+      position:
+        type: string
+      rank:
+        type: string
+  WinningForm:
+    title: WinningForm
+    type: object
+    properties:
+      ID:
+        type: integer
+        format: int64
+      department:
+        type: string
+      is_it_redundant:
+        type: string
+      job_number:
+        type: string
+      name:
+        type: string
+      stage_number:
+        type: integer
+        format: int64
+      winning_time:
+        $ref: '#/definitions/&{time Time}'
+tags:
+- name: awards_table
+  description: |
+    奖项表控制器
+- name: personnel_basic_information
+  description: |
+    人事基本资料控制器
+- name: winning_form
+  description: |
+    中奖表控制器
+- name: awards_conditions_table
+  description: |
+    奖项条件表控制器
+- name: awards_stage_table
+  description: |
+    奖项阶段表控制器
